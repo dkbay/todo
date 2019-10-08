@@ -33,7 +33,7 @@ export default {
         "Take out the trash.",
         "Do the dishes.",
         "Buy groceries.",
-        "Make a todo list app"
+        "Make a todo list app."
       ],
     }
   },
