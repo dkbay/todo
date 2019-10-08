@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style>
-// Import font
+/* Import font */
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
 .container {
   display: grid;
