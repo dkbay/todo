@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <div class="new-todo">
-        <input v-on:keyup.enter="addTodo" v-model="newTodo" class="new-todo-input" type="text" placeholder="Dream about potatoes...">
+        <input v-on:keyup.enter="addTodo" v-model="newTodo" class="new-todo-input" type="text" :placeholder="randomMessage">
       </div>
       <div class="todos">
         <div v-for="(todo,n) in todos" v-bind:key="todo" class="todo">
@@ -23,6 +23,18 @@ export default {
     return {
       todos: [],
       newTodo: "",
+      randomMessage: "",
+      messages: [
+        "Dream about potatoes.",
+        "Clean my room.",
+        "Work on that project.",
+        "Call that one company.",
+        "Cancel that subscription.",
+        "Take out the trash.",
+        "Do the dishes.",
+        "Buy groceries.",
+        "Make a todo list app"
+      ],
     }
   },
   mounted () {
@@ -33,6 +45,7 @@ export default {
         localStorage.removeItem('todos')
       }
     }
+    this.randomMessage = this.messages[Math.floor(Math.random() * this.messages.length)]
     // if (localStorage.todoCount) {
     //   this.todoCount = localStorage.todoCount;
     //   for (let i = 0; i < this.todoCount; i++) {
