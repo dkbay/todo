@@ -46,14 +46,6 @@ export default {
       }
     }
     this.randomMessage = this.messages[Math.floor(Math.random() * this.messages.length)]
-    // if (localStorage.todoCount) {
-    //   this.todoCount = localStorage.todoCount;
-    //   for (let i = 0; i < this.todoCount; i++) {
-    //     console.log(i);
-    //     this.todos.push(localStorage.getItem('todo_'+i));
-        
-    //   }
-    // }
   },
   methods: {
     addTodo() {
@@ -70,14 +62,6 @@ export default {
       let parsed = JSON.stringify(this.todos);
       localStorage.setItem('todos', parsed)
     },
-    // persist() {
-    //   console.log('Todocount before: '+ this.todoCount)
-    //   localStorage.setItem('todo_' + this.todoCount, this.todo);
-    //   this.todos.push(this.todo)
-    //   this.todoCount = Number(this.todoCount) + 1;
-    //   localStorage.setItem('todoCount', this.todoCount)
-    //   console.log('Todocount after: '+ this.todoCount)
-    // }
   }
 }
 </script>
