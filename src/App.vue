@@ -68,9 +68,7 @@ export default {
     sortTodos() {
       let sortedTodos = this.todos.sort()
       this.todos = sortedTodos
-      saveTodos()
-      console.log(sortedTodos)
-
+      this.saveTodos()
     }
   }
 }
