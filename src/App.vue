@@ -4,6 +4,9 @@
       <div class="new-todo">
         <input v-on:keyup.enter="addTodo" v-model="newTodo" class="new-todo-input" type="text" :placeholder="randomMessage">
       </div>
+      <div class="sort">
+        <button @click="sortTodos" class="sort-btn">Sort&nbsp;<img src="sort.svg" alt=""></button>
+      </div>
       <div class="todos">
         <div v-for="(todo,n) in todos" v-bind:key="todo" class="todo">
           <p class="todo-text">{{ todo }}</p>
@@ -62,6 +65,13 @@ export default {
       let parsed = JSON.stringify(this.todos);
       localStorage.setItem('todos', parsed)
     },
+    sortTodos() {
+      let sortedTodos = this.todos.sort()
+      this.todos = sortedTodos
+      saveTodos()
+      console.log(sortedTodos)
+
+    }
   }
 }
 </script>
@@ -72,7 +82,6 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 50px;
   justify-items: center;
   justify-content: center;
   width: 80%;
@@ -164,4 +173,32 @@ p, a, input {
 .row {
   width:100%;
 }
+
+.sort {
+  margin-bottom:50px;
+  margin-top:25px;
+}
+
+.sort-btn {
+  padding: 10px 15px;
+  display: flex;
+  align-items:center;
+  font-size: 1.25em;
+  border:none;
+  background:rgba(16, 178, 249, 0.8);
+  color:#f3f3f3;
+  border-radius: 3px;
+  outline:none;
+  cursor:pointer;
+}
+
+.sort-btn:active {
+  background-color:rgba(16, 178, 249, 1);
+}
+
+.sort-btn img{
+  width: 15px;
+  
+}
+
 </style>
