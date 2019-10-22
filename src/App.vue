@@ -38,6 +38,7 @@ export default {
         "Buy groceries.",
         "Make a todo list app."
       ],
+      sorted: false,
     }
   },
   mounted () {
@@ -67,8 +68,20 @@ export default {
     },
     sortTodos() {
       let sortedTodos = this.todos.sort()
-      this.todos = sortedTodos
-      this.saveTodos()
+      console.log(sortedTodos)
+      console.log(this.todos)
+      if (this.sorted) {
+        this.sorted = false
+        sortedTodos = sortedTodos.reverse()
+        this.todos = sortedTodos
+        console.log("Triggered")
+        this.saveTodos()
+      } else {
+        this.sorted = true
+        this.todos = sortedTodos
+        console.log(sortedTodos)
+        this.saveTodos()
+      }
     }
   }
 }
